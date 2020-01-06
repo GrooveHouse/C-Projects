@@ -1,0 +1,25 @@
+#include "pch.h"
+#include <iostream>
+
+int main()
+{
+	int pennies;
+	int nickels;
+	int dimes;
+	int quarters;
+
+	std::cout << "Input number of pennies: \n";
+	std::cin >> pennies;
+
+	std::cout << "Input number of nickels: \n";
+	std::cin >> nickels;
+
+	std::cout << "Input number of dimes: \n";
+	std::cin >> dimes;
+
+	std::cout << "Input number of quarters: \n";
+	std::cin >> quarters;
+
+	int sum = (quarters * 25) + (dimes * 10) + (nickels * 5) + pennies;
+	std::cout << "Your total is " << sum << " cents\n";
+}

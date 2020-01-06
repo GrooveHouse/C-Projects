@@ -1,0 +1,47 @@
+#include "pch.h"
+#include <iostream>
+using namespace std;
+int main() {
+	bool done = 0;
+	while (done == 0) {
+		int a, b, c;
+		cout << "Input the value of a for ax^2: \n";
+		cin >> a;
+
+		cout << "Input the value of b for bx: \n";
+		cin >> b;
+
+		cout << "Input the value of c: \n";
+		cin >> c;
+
+		int discrim = (b * b) - (4 * a * c);
+		if (discrim == 0) {
+			double squareRoot = sqrt(discrim);
+			double x = (-b + squareRoot) / (2 * a);
+			cout << "x is equal to " << x << "\n";
+		}
+		else if (discrim > 0) {
+			double squareRoot = sqrt(discrim);
+			double x1 = (-b + squareRoot) / (2 * a);
+			double x2 = (-b - squareRoot) / (2 * a);
+			cout << "x is equal to " << x1 << " and " << x2 << "\n";
+		}
+		else {
+			double squareRoot = sqrt(discrim * -1);
+			if (b % 2 == 0 && discrim % 2 == 0) {
+				cout << "x is equal to " << ((-b) / 2) << " + " << squareRoot / 2 << "i / " << a << "\n";
+				cout << "x is equal to " << ((-b) / 2) << " - " << squareRoot / 2 << "i / " << a << "\n";
+			}
+			else {
+				cout << "x is equal to " << (-b) << " + " << squareRoot << "i / " << a << "\n";
+			}
+		}
+
+		char answer;
+		cout << "Do you want to run the program again? y/n\n";
+		cin >> answer;
+		if (answer == 'n') {
+			done = 1;
+		}
+	}
+}

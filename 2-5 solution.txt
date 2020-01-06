@@ -1,0 +1,29 @@
+#include "pch.h"
+#include <iostream>
+using namespace std;
+int main() {
+	bool done = 0;
+	while (done == 0) {
+		int maxCap, currentOcc;
+		cout << "Input the maximum room capacity of the room: \n";
+		cin >> maxCap;
+
+		cout << "Input amount of people attending: \n";
+		cin >> currentOcc;
+
+		if (maxCap < currentOcc) {
+			cout << "There are too many people attending as it exceeds the maximum room capacity.\n";
+		}
+		else {
+			int remainder = maxCap - currentOcc;
+			cout << "You can have at most " << remainder << " more people in the room.\n";
+		}
+		
+		char answer;
+		cout << "Do you want to run the program again? y/n\n";
+		cin >> answer;
+		if (answer == 'n') {
+			done = 1;
+		}
+	}
+}

@@ -1,0 +1,40 @@
+#include "pch.h"
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+using namespace std;
+
+double metabol(int pounds) {
+	double result = 70 * pow((pounds / 2.2), 0.756);
+	return result;
+}
+
+double active(int intense, int pounds, int time) {
+	double result = 0.0385 * intense * pounds * time;
+	return result;
+}
+
+int main() {
+	int weight, intensity, minutes, caloriesFood;
+	cout << "Input your weight to the nearest pound: \n";
+	cin >> weight;
+
+	cout << "Input your desired intensity (walking 1mph is 1, running 6mph is 10, and running 10mph is 17): \n";
+	cin >> intensity;
+
+	cout << "Input the number of minutes you want to exercise: \n";
+	cin >> minutes;
+
+	cout << "Input the number of calories of one serving of your favorite food: \n";
+	cin >> caloriesFood;
+
+	double metabolism = metabol(weight);
+	double activity = active(intensity, weight, minutes);
+
+	double calsAftDigest = caloriesFood * 0.9;
+
+	double calsNeeded = metabolism + activity;
+	double servsNeeded = calsNeeded / calsAftDigest;
+
+	cout << "You need " << servsNeeded << " servings every day to maintain your body weight\n";
+}

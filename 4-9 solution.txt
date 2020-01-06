@@ -1,0 +1,185 @@
+#include "pch.h"
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <cmath>
+using namespace std;
+int firstSelect = 0;
+int secondSelect = 0;
+int thirdSelect = 0;
+int fourthSelect = 0;
+bool sel1 = 0;
+bool sel2 = 0;
+bool sel3 = 0;
+bool sel4 = 0;
+void getBall() {
+	if (firstSelect == 0) {
+		int pick = rand() % 40;
+		if (pick < 20) {
+			firstSelect = 1;
+			sel1 = 1;
+		}
+		else if (pick >= 20 && pick < 30) {
+			firstSelect = 2;
+			sel2 = 1;
+		}
+		else if (pick >= 30 && pick < 36) {
+			firstSelect = 3;
+			sel3 = 1;
+		}
+		else {
+			firstSelect = 4;
+			sel4 = 1;
+		}
+	}
+	else if (secondSelect == 0) {
+		int pick = rand() % 39;
+		if (sel1 == 1) {
+			if (pick >= 19 && pick < 29) {
+				secondSelect = 2;
+				sel2 = 1;
+			}
+			else if (pick >= 29 && pick < 35) {
+				secondSelect = 3;
+				sel3 = 1;
+			}
+			else {
+				secondSelect = 4;
+				sel4 = 1;
+			}
+		}
+		else if (sel2 == 1) {
+			if (pick < 20) {
+				secondSelect = 1;
+				sel1 = 1;
+			}
+			else if (pick >= 29 && pick < 35) {
+				secondSelect = 3;
+				sel3 = 1;
+			}
+			else {
+				secondSelect = 4;
+				sel4 = 1;
+			}
+		}
+		else if (sel3 == 1) {
+			if (pick < 20) {
+				secondSelect = 1;
+				sel1 = 1;
+			}
+			else if (pick >= 20 && pick < 29) {
+				secondSelect = 2;
+				sel2 = 1;
+			}
+			else if (pick >= 35) {
+				secondSelect = 4;
+				sel4 = 1;
+			}
+		}
+		else if (sel4 == 1) {
+			if (pick < 20) {
+				secondSelect = 1;
+				sel1 = 1;
+			}
+			else if (pick >= 20 && pick < 29) {
+				secondSelect = 2;
+				sel2 = 1;
+			}
+			else if (pick >= 29 && pick < 35) {
+				secondSelect = 3;
+				sel3 = 1;
+			}
+		}
+	}
+	else if (thirdSelect == 0) {
+		int pick = rand() % 38;
+		if (sel1 == 1 && sel2 == 1) {
+			if (pick >= 28 && pick < 34) {
+				thirdSelect = 3;
+				sel3 = 1;
+			}
+			else {
+				thirdSelect = 4;
+				sel4 = 1;
+			}
+		}
+		else if (sel1 == 1 && sel3 == 1) {
+			if (pick >= 19 && pick < 29) {
+				thirdSelect = 2;
+				sel2 = 1;
+			}
+			else {
+				thirdSelect = 4;
+				sel4 = 1;
+			}
+		}
+		else if (sel1 == 1 && sel4 == 1) {
+			if (pick >= 19 && pick < 29) {
+				thirdSelect = 2;
+				sel2 = 1;
+			}
+			else if (pick >= 29 && pick < 35) {
+				thirdSelect = 3;
+				sel3 = 1;
+			}
+		}
+		else if (sel2 == 1 && sel3 == 1) {
+			if (pick < 20) {
+				thirdSelect = 1;
+				sel1 = 1;
+			}
+			else {
+				thirdSelect = 4;
+				sel4 = 1;
+			}
+		}
+		else if (sel2 == 1 && sel4 == 1) {
+			if (pick < 20) {
+				thirdSelect = 1;
+				sel1 = 1;
+			}
+			else if (pick >= 29 && pick < 35) {
+				thirdSelect = 3;
+				sel3 = 1;
+			}
+		}
+		else if (sel3 == 1 && sel4 == 1) {
+			if (pick < 20) {
+				thirdSelect = 1;
+				sel1 = 1;
+			}
+			else if (pick >= 20 && pick < 30) {
+				thirdSelect = 2;
+				sel2 = 1;
+			}
+		}
+	}
+	else {
+		if (sel1 == 0) {
+			fourthSelect = 1;
+			sel1 = 1;
+		}
+		else if (sel2 == 0) {
+			fourthSelect = 2;
+			sel2 = 1;
+		}
+		else if (sel3 == 0) {
+			fourthSelect = 3;
+			sel3 = 1;
+		}
+		else if (sel4 == 0) {
+			fourthSelect = 4;
+			sel4 = 1;
+		}
+	}
+}
+int main() {
+	bool allSelected = 0;
+	while (allSelected == 0) {
+		getBall();
+		if (sel1 == 1 && sel2 == 1 && sel3 == 1 && sel4 == 1) {
+			allSelected = 1;
+			cout << "The order will be Team " << firstSelect << ", then Team " << secondSelect << ", then Team " << thirdSelect << ", then Team " << fourthSelect << ".\n";
+		}
+	}
+}

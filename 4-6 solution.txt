@@ -1,0 +1,48 @@
+#include "pch.h"
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <cmath>
+using namespace std;
+double total;
+int answer;
+bool done;
+void promptForCoin() {
+	cout << "Input a number to input a coin (100 for dollar, 25 for quarter, 10 for dime, and 5 for nickel): \n";
+	cin >> answer;
+}
+
+void determineRemainingTotal() {
+	if (answer == 100) {
+		total -= 1;
+	}
+	else if (answer == 25) {
+		total -= 0.25;
+	}
+	else if (answer == 10) {
+		total -= 0.1;
+	}
+	else if (answer == 5) {
+		total -= 0.05;
+	}
+	else {
+		cout << "Please input a valid number\n";
+	}
+	if (total <= 0) {
+		done = 1;
+		cout << "Enjoy your deep-fried twinkie!\n";
+	}
+	else {
+		cout << "You still owe $" << total << "\n";
+	}
+}
+
+int main() {
+	total = 3.50;
+
+	done = 0;
+	while (done == 0) {
+		promptForCoin();
+		determineRemainingTotal();
+	}
+}

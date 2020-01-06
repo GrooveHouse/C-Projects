@@ -1,0 +1,102 @@
+#include "pch.h"
+#include <iostream>
+using namespace std;
+int main() {
+	int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
+	int posSum = 0;
+	int negSum = 0;
+	cout << "Enter the first whole number: \n";
+	cin >> i1;
+	if (i1 > 0) {
+		posSum += i1;
+	}
+	else {
+		negSum += i1;
+	}
+
+	cout << "Enter the second whole number: \n";
+	cin >> i2;
+	if (i2 > 0) {
+		posSum += i2;
+	}
+	else {
+		negSum += i2;
+	}
+
+	cout << "Enter the third whole number: \n";
+	cin >> i3;
+	if (i3 > 0) {
+		posSum += i3;
+	}
+	else {
+		negSum += i3;
+	}
+
+	cout << "Enter the fourth whole number: \n";
+	cin >> i4;
+	if (i4 > 0) {
+		posSum += i4;
+	}
+	else {
+		negSum += i4;
+	}
+
+	cout << "Enter the fifth whole number: \n";
+	cin >> i5;
+	if (i5 > 0) {
+		posSum += i5;
+	}
+	else {
+		negSum += i5;
+	}
+
+	cout << "Enter the sixth whole number: \n";
+	cin >> i6;
+	if (i6 > 0) {
+		posSum += i6;
+	}
+	else {
+		negSum += i6;
+	}
+
+	cout << "Enter the seventh whole number: \n";
+	cin >> i7;
+	if (i7 > 0) {
+		posSum += i7;
+	}
+	else {
+		negSum += i7;
+	}
+
+	cout << "Enter the eigth whole number: \n";
+	cin >> i8;
+	if (i8 > 0) {
+		posSum += i8;
+	}
+	else {
+		negSum += i8;
+	}
+
+	cout << "Enter the ninth whole number: \n";
+	cin >> i9;
+	if (i9 > 0) {
+		posSum += i9;
+	}
+	else {
+		negSum += i9;
+	}
+
+	cout << "Enter the tenth whole number: \n";
+	cin >> i10;
+	if (i10 > 0) {
+		posSum += i10;
+	}
+	else {
+		negSum += i10;
+	}
+
+	int allSum = i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10;
+	cout << "The sum of all positive numbers is " << posSum << "\n";
+	cout << "The sum of all negative numbers is " << negSum << "\n";
+	cout << "The sum of all numbers is " << allSum << "\n";
+}

@@ -1,0 +1,81 @@
+#include "pch.h"
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <cmath>
+using namespace std;
+
+int main() {
+	int startHour, startMinute, endHour, endMinute;
+	bool isStartAM, isEndAM;
+	string startZone, endZone;
+	int minutes = 0;
+
+	cout << "Input the hour that you will start at: \n";
+	cin >> startHour;
+
+	cout << "Input the minute that you will start at: \n";
+	cin >> startMinute;
+
+	cout << "Will this time be in the AM or PM? \n";
+	cin >> startZone;
+
+	cout << "Input the hour that you will end at: \n";
+	cin >> endHour;
+
+	cout << "Input the minute that you will end at: \n";
+	cin >> endMinute;
+
+	cout << "Will this time be in the AM or PM? \n";
+	cin >> endZone;
+
+	if (startZone == "AM" || "am") {
+		isStartAM = 1;
+	}
+	else if (startZone == "PM" || "pm") {
+		isStartAM = 0;
+	}
+
+	if (endZone == "AM" || "am") {
+		isEndAM = 1;
+	}
+	else if (endZone == "PM" || "pm") {
+		isEndAM = 0;
+	}
+
+	if (isStartAM == 1 && isEndAM == 1 && startHour > endHour) {
+		minutes = 12 * 60;
+	}
+	else if (isStartAM == 0 && isEndAM == 0 && startHour > endHour) {
+		minutes = 12 * 60;
+	}
+
+	if (startHour != endHour) {
+		int nearestHour = 60 - startMinute;
+		minutes += nearestHour;
+		startHour++;
+		if (startHour == 13) {
+			startHour = 1;
+		}
+
+		for (int i = startHour; i < endHour - 1; i++) {
+			minutes += 60;
+			if (i == 12) {
+				i = 0;
+			}
+		}
+
+		for (int i = 1; i != endMinute + 1; i++) {
+			minutes++;
+		}
+
+		cout << "It will be a " << minutes << " minute difference\n";
+	}
+	else {
+		for (int i = startMinute; i != endMinute + 1; i++) {
+			minutes++;
+		}
+
+		cout << "It will be a " << minutes << " minute difference\n";
+	}
+}

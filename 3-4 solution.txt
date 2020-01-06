@@ -1,0 +1,448 @@
+#include "pch.h"
+#include <iostream>
+using namespace std;
+int main() {
+	bool done = 0;
+	while (done == 0) {
+		int numOfCards;
+		int sum = 0;
+		cout << "Input how many cards you have (2, 3, 4, or 5): \n";
+		cin >> numOfCards;
+		char c1 = '0', c2 = '0', c3 = '0', c4 = '0', c5 = '0';
+		int c1int, c2int, c3int, c4int, c5int;
+		for (int i = 0; i < numOfCards; i++) {
+			if (i == 0) {
+				cout << "Input value of the first card (2-9, T/t, J/j, Q/q, K/k, A/a): \n";
+				cin >> c1;
+			}
+			if (i == 1) {
+				cout << "Input value of the second card (2-9, T/t, J/j, Q/q, K/k, A/a): \n";
+				cin >> c2;
+			}
+			if (i == 2) {
+				cout << "Input value of the third card (2-9, T/t, J/j, Q/q, K/k, A/a): \n";
+				cin >> c3;
+			}
+			if (i == 3) {
+				cout << "Input value of the fourth card (2-9, T/t, J/j, Q/q, K/k, A/a): \n";
+				cin >> c4;
+			}
+			if (i == 4) {
+				cout << "Input value of the fifth card (2-9, T/t, J/j, Q/q, K/k, A/a): \n";
+				cin >> c5;
+			}
+		}
+
+		for (int i = 0; i < numOfCards; i++) {
+			if (i == 0) {
+				if (c1 == '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9') {
+					c1int = (int)(c1 - '0');
+					
+				}
+				else if (c1 == 't' || 'j' || 'q' || 'k' || 'T' || 'J' || 'Q' || 'K') {
+					c1int = 10;
+				}
+				sum += c1int;
+			}
+			if (i == 1) {
+				if (c2 == '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9') {
+					c2int = (int)(c2 - '0');
+					
+				}
+				else if (c2 == 't' || 'j' || 'q' || 'k' || 'T' || 'J' || 'Q' || 'K') {
+					c2int = 10;
+				}
+				sum += c2int;
+			}
+			if (i == 2) {
+				if (c3 == '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9') {
+					c3int = (int)(c3 - '0');
+					
+				}
+				else if (c3 == 't' || 'j' || 'q' || 'k' || 'T' || 'J' || 'Q' || 'K') {
+					c3int = 10;
+				}
+				sum += c3int;
+			}
+			if (i == 3) {
+				if (c4 == '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9') {
+					c4int = (int)(c4 - '0');
+					
+				}
+				else if (c4 == 't' || 'j' || 'q' || 'k' || 'T' || 'J' || 'Q' || 'K') {
+					c4int = 10;
+				}
+				sum += c4int;
+			}
+			if (i == 4) {
+				if (c5 == '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9') {
+					c5int = (int)(c5 - '0');
+					
+				}
+				else if (c5 == 't' || 'j' || 'q' || 'k' || 'T' || 'J' || 'Q' || 'K') {
+					c5int = 10;
+				}
+				sum += c5int;
+			}
+		}
+		bool otherAces = 0;
+		switch (c1) {
+		case 'a':
+			if (sum < 10) {
+				c1int = 11;
+			}
+			else {
+				c1int = 1;
+			}
+			sum += c1int;
+			break;
+		case 'A':
+			if (sum < 10) {
+				c1int = 11;
+			}
+			else {
+				c1int = 1;
+			}
+			sum += c1int;
+			break;
+		}
+
+		switch (c2) {
+		case 'a':
+			otherAces = 0;
+			for (int j = 0; j < numOfCards; j++) {
+				if (j == 0) {
+					if (c1 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 1) {
+					if (c2 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 2) {
+					if (c3 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 3) {
+					if (c4 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 4) {
+					if (c5 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+			}
+			if (otherAces == 1 && sum > 10) {
+				c2int = 1;
+				sum += c1int;
+			}
+			break;
+		case 'A':
+			otherAces = 0;
+			for (int j = 0; j < numOfCards; j++) {
+				if (j == 0) {
+					if (c1 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 1) {
+					if (c2 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 2) {
+					if (c3 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 3) {
+					if (c4 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 4) {
+					if (c5 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+			}
+			if (otherAces == 1 && sum > 10) {
+				c2int = 1;
+				sum += c1int;
+			}
+			break;
+		}
+
+		switch (c3) {
+		case 'a':
+			otherAces = 0;
+			for (int j = 0; j < numOfCards; j++) {
+				if (j == 0) {
+					if (c1 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 1) {
+					if (c2 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 2) {
+					if (c3 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 3) {
+					if (c4 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 4) {
+					if (c5 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+			}
+			if (otherAces == 1 && sum > 10) {
+				c3int = 1;
+				sum += c1int;
+			}
+			break;
+		case 'A':
+			otherAces = 0;
+			for (int j = 0; j < numOfCards; j++) {
+				if (j == 0) {
+					if (c1 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 1) {
+					if (c2 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 2) {
+					if (c3 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 3) {
+					if (c4 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 4) {
+					if (c5 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+			}
+			if (otherAces == 1 && sum > 10) {
+				c3int = 1;
+				sum += c1int;
+			}
+			break;
+		}
+
+		switch (c4) {
+		case 'a':
+			otherAces = 0;
+			for (int j = 0; j < numOfCards; j++) {
+				if (j == 0) {
+					if (c1 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 1) {
+					if (c2 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 2) {
+					if (c3 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 3) {
+					if (c4 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 4) {
+					if (c5 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+			}
+			if (otherAces == 1 && sum > 10) {
+				c4int = 1;
+				sum += c1int;
+			}
+			break;
+		case 'A':
+			otherAces = 0;
+			for (int j = 0; j < numOfCards; j++) {
+				if (j == 0) {
+					if (c1 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 1) {
+					if (c2 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 2) {
+					if (c3 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 3) {
+					if (c4 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 4) {
+					if (c5 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+			}
+			if (otherAces == 1 && sum > 10) {
+				c4int = 1;
+				sum += c1int;
+			}
+			break;
+		}
+
+		switch (c5) {
+		case 'a':
+			otherAces = 0;
+			for (int j = 0; j < numOfCards; j++) {
+				if (j == 0) {
+					if (c1 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 1) {
+					if (c2 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 2) {
+					if (c3 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 3) {
+					if (c4 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 4) {
+					if (c5 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+			}
+			if (otherAces == 1 && sum > 10) {
+				c5int = 1;
+				sum += c1int;
+			}
+			break;
+		case 'A':
+			otherAces = 0;
+			for (int j = 0; j < numOfCards; j++) {
+				if (j == 0) {
+					if (c1 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 1) {
+					if (c2 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 2) {
+					if (c3 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 3) {
+					if (c4 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+				if (j == 4) {
+					if (c5 == 'a') {
+						otherAces == 1;
+						j = numOfCards;
+					}
+				}
+			}
+			if (otherAces == 1 && sum > 10) {
+				c5int = 1;
+				sum += c1int;
+			}
+			break;
+		}
+
+		if (sum <= 21) {
+			cout << sum << "\n";
+		}
+		else {
+			cout << "Busted\n";
+		}
+
+		char answer;
+		cout << "Do you want to run the program again? y/n\n";
+		cin >> answer;
+		if (answer == 'n') {
+			done = 1;
+		}
+	}
+}

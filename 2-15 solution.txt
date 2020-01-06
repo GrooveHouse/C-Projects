@@ -1,0 +1,26 @@
+#include "pch.h"
+#include <iostream>
+using namespace std;
+int main() {
+	double coeff, displacement, temp, origLength;
+
+	cout << "Input the temperature in Celcius: \n";
+	cin >> temp;
+
+	cout << "Input the coefficient for linear expansion in a decimal number: \n";
+	cin >> coeff;
+
+	cout << "Input the initial length of the material in meters: \n";
+	cin >> origLength;
+
+	displacement = coeff * origLength * temp;
+	if (displacement > 0) {
+		cout << "The material will expand by " << displacement << " meters\n";
+	}
+	else if (displacement < 0) {
+		cout << "The material will contract by " << displacement << " meters\n";
+	}
+	else {
+		cout << "The material will be the same length";
+	}
+}

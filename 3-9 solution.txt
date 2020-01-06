@@ -1,0 +1,116 @@
+#include "pch.h"
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int main() {
+	int correctSwitch = 0, correctStay = 0, runs;
+	cout << "Input number of simulated runs to be had: \n";
+	cin >> runs;
+	int d1, d2, d3;
+	for (int i = 0; i < runs; i++) {
+		d1 = rand() % 2;
+		if (d1 == 1) {
+			d2 = 0;
+			d3 = 0;
+		}
+		else {
+			d2 = rand() % 2;
+			if (d2 == 1) {
+				d3 = 0;
+			}
+			else {
+				d3 = 1;
+			}
+		}
+
+		int initPick = rand() % 3;
+		int throwOff = 0;
+		if (initPick == 0 && d1 == 0) {
+			if (d2 == 0) {
+				throwOff = 1;
+			}
+			else {
+				throwOff = 2;
+			}
+		}
+		else if (initPick == 0 && d1 == 1) {
+			int throwOff = (rand() % 2) + 1;
+		}
+		else if (initPick == 1 && d2 == 0) {
+			if (d1 == 0) {
+				throwOff = 0;
+			}
+			else {
+				throwOff = 2;
+			}
+		}
+		else if (initPick == 1 && d2 == 1) {
+			throwOff = (rand() % 2) * 2;
+		}
+		else if (initPick == 2 && d3 == 0) {
+			if (d1 == 0) {
+				throwOff = 0;
+			}
+			else {
+				throwOff = 1;
+			}
+		}
+		else if (initPick == 2 && d3 == 1) {
+			throwOff = rand() % 2;
+		}
+
+		int switchDoor = rand() % 2;
+		if (switchDoor == 0) {
+			if (initPick == 0) {
+				if (d1 == 1) {
+					correctStay++;
+				}
+			} 
+			else if (initPick == 1) {
+				if (d2 == 1) {
+					correctStay++;
+				}
+			}
+			else if (initPick == 2) {
+				if (d3 == 1) {
+					correctStay++;
+				}
+			}
+		}
+		else if (switchDoor == 1) {
+			if (initPick == 0 && throwOff == 1) {
+				if (d3 == 1) {
+					correctSwitch++;
+				}
+			}
+			else if (initPick == 0 && throwOff == 2) {
+				if (d2 == 1) {
+					correctSwitch++;
+				}
+			}
+			else if (initPick == 1 && throwOff == 0) {
+				if (d3 == 1) {
+					correctSwitch++;
+				}
+			}
+			else if (initPick == 1 && throwOff == 2) {
+				if (d1 == 1) {
+					correctSwitch++;
+				}
+			}
+			else if (initPick == 2 && throwOff == 0) {
+				if (d2 == 1) {
+					correctSwitch++;
+				}
+			}
+			else if (initPick == 2 && throwOff == 1) {
+				if (d1 == 1) {
+					correctSwitch++;
+				}
+			}
+		}
+	}
+
+	cout << "The number of correct switches was " << correctSwitch << "\n";
+	cout << "The number of correct stays was " << correctStay << "\n";
+}

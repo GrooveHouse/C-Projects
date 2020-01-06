@@ -1,0 +1,51 @@
+#include "pch.h"
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <cmath>
+using namespace std;
+
+int main() {
+	bool done = 0;
+	while (done == 0) {
+		int currHour, currMinute, waitHour, waitMinute;
+
+		cout << "Input the current hour in 24-hour format: \n";
+		cin >> currHour;
+
+		cout << "Input the time's minutes: \n";
+		cin >> currMinute;
+
+		cout << "Input the number of hours to wait: \n";
+		cin >> waitHour;
+
+		cout << "Input the number of minutes to wait: \n";
+		cin >> waitMinute;
+
+		int futureHour = waitHour + currHour;
+		int futureMinute = currMinute + waitMinute;
+		while (futureMinute >= 60) {
+			futureMinute -= 60;
+			futureHour++;
+		}
+		if (futureHour > 23) {
+			futureHour -= 24;
+		}
+
+		string hourDisp = futureHour + "", minuteDisp;
+		if (futureMinute < 10) {
+			minuteDisp = "0" + futureMinute;
+		}
+		else {
+			minuteDisp = futureMinute + "";
+		}
+
+		cout << "The time after waiting will be " << futureHour << ":" << futureMinute << "\n";
+		char answer;
+		cout << "Do you want to run the program again? y/n\n";
+		cin >> answer;
+		if (answer == 'n') {
+			done = 1;
+		}
+	}
+}

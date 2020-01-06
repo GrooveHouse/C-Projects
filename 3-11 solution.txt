@@ -1,0 +1,117 @@
+#include "pch.h"
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int main() {
+	int d1, d2, d3, d1c, d2c, d3c, together;
+	cout << "Input the first digit of the desired temp: \n";
+	cin >> d1;
+
+	cout << "Input the second digit of the desired temp: \n";
+	cin >> d2;
+
+	cout << "Input the third digit of the desired temp: \n";
+	cin >> d3;
+
+	d1c = d1;
+	d2c = d2;
+	d3c = d3;
+
+	if (d1 == 1) {
+		cout << "Desired temp is 99 or 200\n";
+		d2 = 0;
+		d3 = 0;
+	}
+	else if (d1 == 4) {
+		cout << "Desired temp is 399 or 500\n";
+		d2 = 0;
+		d3 = 0;
+	}
+	else if (d1 == 7) {
+		cout << "Desired temp is 699 or 800\n";
+		d2 = 0;
+		d3 = 0;
+	}
+
+	if (d2 == 1) {
+		d2 = 0;
+		d1 *= 100;
+		d3 = 9;
+		together = d1 + d2 + d3;
+		cout << "Desired temp is " << together;
+
+		d2 = 20;
+		d3 = 0;
+		together = d1 + d2 + d3;
+		cout << " or " << together << "\n";
+	}
+	else if (d2 == 4) {
+		d2 = 30;
+		d1 *= 100;
+		d3 = 9;
+		together = d1 + d2 + d3;
+		cout << "Desired temp is " << together;
+
+		d2 = 50;
+		d3 = 0;
+		together = d1 + d2 + d3;
+		cout << " or " << together << "\n";
+	}
+	else if (d2 == 7) {
+		d2 = 60;
+		d1 *= 100;
+		d3 = 9;
+		together = d1 + d2 + d3;
+		cout << "Desired temp is " << together;
+
+		d2 = 80;
+		d3 = 0;
+		together = d1 + d2 + d3;
+		cout << " or " << together << "\n";
+	}
+
+	if (d3 == 1) {
+		d3 = 0;
+		d1 *= 100;
+		d2 *= 10;
+		together = d1 + d2 + d3;
+		cout << "Desired temp is " << together;
+
+		d3 = 2;
+		together = d1 + d2 + d3;
+		cout << " or " << together << "\n";
+	} 
+	else if (d3 == 4) {
+		d3 = 3;
+		d1 *= 100;
+		d2 *= 10;
+		together = d1 + d2 + d3;
+		cout << "Desired temp is " << together;
+
+		d3 = 5;
+		together = d1 + d2 + d3;
+		cout << " or " << together << "\n";
+	}
+	else if (d3 == 7) {
+		d3 = 6;
+		d1 *= 100;
+		d2 *= 10;
+		together = d1 + d2 + d3;
+		cout << "Desired temp is " << together;
+
+		d3 = 8;
+		together = d1 + d2 + d3;
+		cout << " or " << together << "\n";
+	}
+
+	if (d1c != 1 && d1c != 4 && d1c != 7) {
+		if (d2c != 1 && d2c != 4 && d2c != 7) {
+			if (d3c != 1 && d3c != 4 && d3c != 7) {
+				d1c *= 100;
+				d2c *= 10;
+				together = d1c + d2c + d3c;
+				cout << "Desired temp is " << together << "\n";
+			}
+		}
+	}
+}

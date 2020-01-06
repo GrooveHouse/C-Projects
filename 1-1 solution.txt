@@ -1,0 +1,15 @@
+#include "pch.h"
+#include <iostream>
+
+int main()
+{
+	int int1;
+	std::cout << "Input first integer: \n";
+	std::cin >> int1;
+
+	int int2;
+	std::cout << "Input second integer: \n";
+	std::cin >> int2;
+	
+	std::cout << "The sum is " << int1 + int2 << " and the product is " << int1 * int2 << "\n";
+}

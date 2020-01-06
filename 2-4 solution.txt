@@ -1,0 +1,37 @@
+#include "pch.h"
+#include <iostream>
+using namespace std;
+int main()
+{
+	bool done = 0;
+	while (done == 0) {
+		double total, interestPercent, duration;
+		cout << "Input amount of money needed: \n";
+		cin >> total;
+
+		cout << "Input the interest in percentage: \n";
+		cin >> interestPercent;
+
+		cout << "Input how long the loan will last in months: \n";
+		cin >> duration;
+
+		double interest = interestPercent / 100;
+		double years = duration / 12;
+
+		double trueTotal = (total * -1) / ((interest * years) - 1);
+		double monthly = trueTotal / duration;
+
+		cout.setf(ios::fixed);
+		cout.setf(ios::showpoint);
+		cout.precision(2);
+		cout << "You would owe $" << trueTotal << " and owe $" << monthly << " a month.\n";
+
+		char answer;
+		cout << "Do you want to go again? y/n \n";
+		cin >> answer;
+
+		if (answer == 'n') {
+			done = 1;
+		}
+	}
+}

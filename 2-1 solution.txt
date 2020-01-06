@@ -1,0 +1,29 @@
+#include "pch.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int mouseDose, mouseWeight, dieterWeight;
+
+	cout << "Input the amount for a lethal dose of artificial sweetener for the mouse in grams: \n";
+	cin >> mouseDose;
+
+	cout << "Input the weight of the mouse: \n";
+	cin >> mouseWeight;
+
+	cout << "Input how much you plan on weighing at the end of your diet in grams: \n";
+	cin >> dieterWeight;
+
+	double lethalRatio = mouseWeight / mouseDose;
+	double maxDose = dieterWeight / lethalRatio;
+
+	const double sodaPercent = 350 * 0.001;
+	
+	cout.setf(ios::fixed);
+	cout.setf(ios::showpoint);
+	cout.precision(2);
+	double cans = maxDose * sodaPercent;
+	cout << "The maximum amount of cans of diet soda you can drink safely is " << cans << " cans.\n";
+}
